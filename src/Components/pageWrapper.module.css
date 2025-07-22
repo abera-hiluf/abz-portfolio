@@ -1,0 +1,22 @@
+.wrapper {
+  min-height: 100vh;
+  padding: 0 1rem;
+  background-color: #f8f9fa;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.wrapper.dark {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding: 0 2rem;
+  }
+}
+
+/* Ensure framer-motion animations work smoothly */
+.wrapper > * {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}

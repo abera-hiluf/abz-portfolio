@@ -1,0 +1,63 @@
+.navbar {
+  background-color: #212529; /* Default navbar background */
+}
+
+.darkMode {
+  background-color: #1f1f1f; /* Matches bg-dark in dark mode */
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white !important;
+}
+
+.collapse {
+  display: flex;
+  justify-content: flex-end; /* Aligns nav links to the right */
+}
+
+.nav {
+  display: flex;
+  text-transform: uppercase;
+}
+
+.navLink {
+  color: rgba(255, 255, 255, 0.55) !important;
+  padding: 0.5rem 1rem !important;
+  text-decoration: none !important; /* Removes underline */
+}
+
+.navLink:hover,
+.navLink.active {
+  color: white !important;
+  text-decoration: none !important; /* Ensures no underline on hover/active */
+}
+
+/* Override Bootstrap's default link styles */
+:global(.nav-link) {
+  text-decoration: none !important;
+}
+
+:global(.nav-link:hover),
+:global(.nav-link.active) {
+  text-decoration: none !important;
+}
+
+.toggleButton {
+  background: none;
+  border: 1px solid #00bfa6;
+  color: #00bfa6;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.toggleButton:hover {
+  background-color: #00d1b2;
+  color: white;
+  transform: translateY(-2px);
+}

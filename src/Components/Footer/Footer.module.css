@@ -1,0 +1,29 @@
+.footer {
+  padding: 1.5rem 1rem;
+  background-color: #1f1f1f;
+  color: white;
+  text-align: center;
+}
+
+:global(.dark-mode) .footer {
+  background-color: #1f1f1f;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.socials {
+  margin-top: 0.5rem;
+}
+
+.socialLink {
+  color: white;
+  text-decoration: none;
+  margin: 0 0.75rem;
+}
+
+.socialLink:hover {
+  color: #00bfa6;
+}

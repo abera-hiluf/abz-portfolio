@@ -1,0 +1,19 @@
+:global(html) {
+  scroll-behavior: smooth;
+}
+
+:global(body) {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.1rem;
+  color: #f8f9fa;
+  background-color: #121212;
+}
+
+:global(h1, h2, h3) {
+  font-weight: bold;
+}
+
+.dark {
+  background-color: #121212;
+  color: #f1f1f1;
+}
