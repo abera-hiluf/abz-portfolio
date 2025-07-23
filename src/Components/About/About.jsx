@@ -1,7 +1,7 @@
 /** @jsxImportSource react */
 import React from "react";
 import styles from "./About.module.css";
-
+import aboutImage from "../../assets/about-pic.jpg";
 const About = () => {
   return (
     <section id="about" className={styles.section} data-aos="fade-up">
@@ -11,7 +11,7 @@ const About = () => {
         <div className={styles.content}>
           <div className={styles.imageContainer}>
             <img
-              src="../../assets/photo_2025-06-28_22-46-00.jpg"
+              src={aboutImage}
               alt="Abera"
               className={styles.image}
             />

@@ -2,13 +2,14 @@
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import styles from "./Header.module.css";
+import profilePhoto from "../../assets/abu-pic.jpg";
 
 const Header = () => {
   return (
     <header id="home" className={styles.header}>
       <div className={styles.overlay}>
         <img
-          src="../../assets/abu,pic.jpg"
+          src={profilePhoto}
           alt="Abera"
           className={styles.profilePhoto}
         />
