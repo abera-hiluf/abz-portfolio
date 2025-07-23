@@ -8,7 +8,7 @@ const Header = () => {
     <header id="home" className={styles.header}>
       <div className={styles.overlay}>
         <img
-          src="/src/assets/abu,pic.jpg"
+          src="../../assets/abu,pic.jpg"
           alt="Abera"
           className={styles.profilePhoto}
         />

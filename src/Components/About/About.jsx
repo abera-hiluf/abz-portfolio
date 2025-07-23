@@ -11,7 +11,7 @@ const About = () => {
         <div className={styles.content}>
           <div className={styles.imageContainer}>
             <img
-              src="/src/assets/photo_2025-06-28_22-46-00.jpg"
+              src="../../assets/photo_2025-06-28_22-46-00.jpg"
               alt="Abera"
               className={styles.image}
             />
