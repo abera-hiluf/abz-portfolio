@@ -3,12 +3,13 @@
 /** @jsxImportSource react */
 import React from 'react';
 import styles from './Project.module.css';
+import forumImage from '../../../src/assets/forum.png';
 
 const Projects = () => {
   const projects = [
     {
       title: "Full-stack Forum Application",
-      image: "../../../src/assets/forum.png",
+      image: forumImage,
       description: [
         "✅ Full-stack Student Q&A Platform fostering knowledge sharing.",
         "✅ Front end with React.js, CSS, and Bootstrap for a modern UI.",
