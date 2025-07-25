@@ -4,6 +4,9 @@
 import React from 'react';
 import styles from './Project.module.css';
 import forumImage from '../../../src/assets/forum.png';
+import amazonImage from '../../../src/assets/amazon.png';
+import netflixImage from '../../../src/assets/Netflix.png';
+import appleImage from '../../../src/assets/apple.png'
 
 const Projects = () => {
   const projects = [
@@ -29,7 +32,7 @@ const Projects = () => {
     },
     {
       title: "Amazon Clone",
-      image: "../../../src/assets/amazon.png",
+      image: amazonImage,
       description: [
         "✅ Front-end replica of Amazon with shopping cart functionality.",
         "✅ Built with React.js, CSS, and Redux for state management.",
@@ -42,7 +45,7 @@ const Projects = () => {
     },
     {
       title: "Netflix Clone",
-      image: "../../../src/assets/Netflix.png",
+      image: netflixImage,
       description: [
         "✅ Full-stack movie streaming platform inspired by Netflix.",
         "✅ React.js and CSS for a responsive, immersive UI.",
@@ -55,7 +58,7 @@ const Projects = () => {
     },
     {
       title: "Apple Clone",
-      image: "../../../src/assets/apple.png",
+      image: appleImage,
       description: [
         "✅ Modern frontend website inspired by Apple’s homepage.",
         "✅ Developed with HTML, CSS, and JavaScript for sleek design.",
