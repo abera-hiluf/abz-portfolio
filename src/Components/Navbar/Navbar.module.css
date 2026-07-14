@@ -1,63 +1,182 @@
-.navbar {
-  background-color: #212529; /* Default navbar background */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 0;
+  background-color: var(--bg-nav);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-neutral);
+  transition: var(--transition-smooth);
 }
 
-.darkMode {
-  background-color: #1f1f1f; /* Matches bg-dark in dark mode */
+.scrolled {
+  padding: 14px 0;
+  background-color: var(--bg-nav);
+  border-bottom: 1px solid var(--border-primary);
+  box-shadow: var(--shadow-dark);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .brand {
+  font-family: var(--font-outfit);
   font-size: 1.5rem;
-  font-weight: bold;
-  color: white !important;
-}
-
-.collapse {
-  display: flex;
-  justify-content: flex-end; /* Aligns nav links to the right */
-}
-
-.nav {
-  display: flex;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
   text-transform: uppercase;
+  transition: var(--transition-smooth);
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.navLink {
-  color: rgba(255, 255, 255, 0.55) !important;
-  padding: 0.5rem 1rem !important;
-  text-decoration: none !important; /* Removes underline */
+.brand:hover {
+  color: var(--gold-hover);
 }
 
-.navLink:hover,
-.navLink.active {
-  color: white !important;
-  text-decoration: none !important; /* Ensures no underline on hover/active */
+.navList {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
-/* Override Bootstrap's default link styles */
-:global(.nav-link) {
-  text-decoration: none !important;
+.navItem a {
+  font-family: var(--font-outfit);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-secondary);
+  position: relative;
+  padding: 6px 0;
+  transition: var(--transition-smooth);
 }
 
-:global(.nav-link:hover),
-:global(.nav-link.active) {
-  text-decoration: none !important;
+.navItem a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--gold-primary);
+  transition: var(--transition-smooth);
 }
 
-.toggleButton {
+.navItem a:hover {
+  color: var(--gold-hover);
+}
+
+.navItem a:hover::after {
+  width: 100%;
+}
+
+/* Active Section Highlight */
+.navItemActive a {
+  color: var(--gold-primary) !important;
+}
+
+.navItemActive a::after {
+  width: 100% !important;
+}
+
+.themeToggle {
   background: none;
-  border: 1px solid #00bfa6;
-  color: #00bfa6;
-  font-size: 0.875rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 0.25rem;
+  border: 1px solid var(--border-neutral);
+  color: var(--gold-primary);
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 20px;
   cursor: pointer;
-  margin-left: 1rem;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.toggleButton:hover {
-  background-color: #00d1b2;
-  color: white;
+.themeToggle:hover {
+  border-color: var(--gold-primary);
+  background-color: var(--gold-primary);
+  color: #000;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
   transform: translateY(-2px);
+}
+
+/* Mobile Toggle Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1010;
+}
+
+.bar {
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-primary);
+  transition: var(--transition-smooth);
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navigation {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background-color: var(--bg-secondary);
+    border-left: 1px solid var(--border-neutral);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    padding: 100px 40px;
+    transition: var(--transition-smooth);
+    z-index: 1005;
+  }
+
+  .navigation.active {
+    right: 0;
+  }
+
+  .navList {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 35px;
+  }
+
+  .navItem a {
+    font-size: 1.1rem;
+  }
+
+  .hamburgerActive .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburgerActive .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburgerActive .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 }

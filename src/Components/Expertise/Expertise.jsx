@@ -1,96 +1,74 @@
-/** @jsxImportSource react */
 import React from "react";
 import styles from "./Expertise.module.css";
 
 const Expertise = () => {
-  const services = [
+  const educationList = [
     {
-      name: "Responsive Web Design",
+      title: "Bachelor of Computer Engineering (AI & ML)",
+      institution: "Anna University, India",
+      duration: "Starting August 2025",
+      status: "STARTING AUGUST 2025",
+      icon: "🎓",
+      description: "Deepening knowledge in advanced mathematics, neural networks, machine learning architectures, and deep learning engineering workflows.",
+    },
+    {
+      title: "Bachelor of Information Science & Tech",
+      institution: "Addis Ababa University, Ethiopia",
+      duration: "2023 – 2025",
+      status: "COMPLETED 2 YEARS",
+      icon: "🖥️",
+      description: "Studied fundamental programming paradigms, data structures, database design, operating systems, and network communication basics.",
+    },
+    {
+      title: "Full Stack Web Development (MERN)",
+      institution: "Evangadi Networks, Maryland, USA",
+      duration: "December 2024 – June 2025",
+      status: "COMPLETED",
       icon: "💻",
-      description:
-        "I craft seamless, visually appealing layouts that adapt across desktop, tablet, and mobile for optimal UX.",
+      description: "Enrolled in an intensive, project-driven training covering MongoDB, Express.js, React.js, Node.js, version control, and app deployment.",
     },
     {
-      name: "Client Satisfaction",
-      icon: "👍⭐⭐⭐",
-      description:
-        "I prioritize communication, clean code, and high-quality deliverables to exceed expectations and build trust.",
+      title: "Algorithms & Machine Learning Fundamentals",
+      institution: "Self-Directed / Specializations",
+      duration: "Ongoing",
+      status: "ONGOING",
+      icon: "🧠",
+      description: "Focusing on data structures, design patterns, predictive modeling, data scraping pipelines, and solving complex algorithmic challenges.",
     },
-    {
-      name: "Delivery on Time",
-      icon: "⏱️✅",
-      description:
-        "I ensure timely delivery with strong planning, proactive problem-solving, and clear milestone tracking.",
-    },
-    {
-      name: "Availability",
-      icon: "🕒",
-      description:
-        "Always ready to support and collaborate across different time zones with full availability.",
-    },
-    {
-      name: "API Development",
-      icon: "🔌",
-      description:
-        "Skilled in building RESTful APIs and integrating third-party services for full-stack projects.",
-    },
-    {
-      name: "Web Development",
-      icon: "🌐",
-      description:
-        "Capable of managing both front-end and back-end development simultaneously for efficient delivery.",
-    },
-  ];
-
-  const skills = [
-    "HTML5",
-    "CSS3",
-    "Bootstrap",
-    "Tailwind CSS",
-    "JavaScript",
-    "TypeScript",
-    "jQuery",
-    "React.js",
-    "Next.js",
-    "Node.js",
-    "Express.js",
-    "Firebase",
-    "MySQL",
-    "MongoDB",
-    "PostgreSQL",
-    "Git & GitHub",
   ];
 
   return (
-    
-    <section id="expertise" className={styles.section}>
+    <section id="education" className={`${styles.section} section-padding`}>
       <div className={styles.container}>
-        <h5 className={styles.subtitle}>What I Offer</h5>
-        <h2 className={styles.title}>My Services</h2>
-        <div className={styles.servicesGrid}>
-          {services.map((service, index) => (
-            <div
-              key={service.name}
-              className={styles.serviceCard}
-              data-aos="flip-left"
+        {/* SECTION TITLE */}
+        <div className={styles.header} data-aos="fade-up">
+          <span className="section-subtitle">Learning Journey</span>
+          <h2 className="section-main-title">Education & Trainings</h2>
+        </div>
+
+        <div className={styles.grid}>
+          {educationList.map((item, index) => (
+            <div 
+              key={item.title} 
+              className={`${styles.card} glass-panel`}
+              data-aos="fade-up"
               data-aos-delay={index * 100}
             >
-              <span className={styles.serviceIcon}>{service.icon}</span>
-              <h5 className={styles.serviceTitle}>{service.name}</h5>
-              <p>{service.description}</p>
+              <div className={styles.iconBox}>
+                {item.icon}
+              </div>
+              <div className={styles.cardContent}>
+                <div className={styles.cardHeader}>
+                  <h4 className={styles.cardTitle}>{item.title}</h4>
+                  <span className={styles.badge}>{item.status}</span>
+                </div>
+                <h5 className={styles.institution}>
+                  {item.institution} <span className={styles.duration}>• {item.duration}</span>
+                </h5>
+                <p className={styles.description}>{item.description}</p>
+              </div>
             </div>
           ))}
-        </div>
-        <div className={styles.skillsSection} data-aos="fade-up">
-          <h3 className={styles.skillsSubtitle}>Technical Expertise</h3>
-          <h2 className={styles.skillsTitle}>My Skills</h2>
-          <div className={styles.skillsGrid}>
-            {skills.map((skill) => (
-              <div key={skill} className={styles.skillPill}>
-                {skill}
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

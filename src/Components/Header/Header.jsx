@@ -1,60 +1,49 @@
-/** @jsxImportSource react */
 import React from "react";
-import { TypeAnimation } from "react-type-animation";
 import styles from "./Header.module.css";
-import profilePhoto from "../../assets/abu-pic.jpg";
 
 const Header = () => {
   return (
     <header id="home" className={styles.header}>
-      <div className={styles.overlay}>
-        <img
-          src={profilePhoto}
-          alt="Abera"
-          className={styles.profilePhoto}
-        />
-        <div className={styles.text}>
-          <h1 className={styles.title} data-aos="fade-up">
-            Hi, I'm <span className={styles.highlight}>Abera</span> 👋
-          </h1>
-          <p className={styles.lead}>
-            I'm a{" "}
-            <TypeAnimation
-              sequence={[
-                "Full Stack Web Developer",
-                1000,
-                "AI/Machine Learning Enthusiast",
-                1000,
-                "Creative Problem Solver",
-                1000,
-              ]}
-              speed={50}
-              repeat={Infinity}
-              className={styles.typing}
-            />
-            based in Ethiopia,
-            <br />
-            <strong>React, Node.js, MySQL, MongoDB</strong>, and more.
-            <br />
-            My focus is on building scalable digital products that provide real
-            impact.
-          </p>
-          <div
-            className={styles.buttons}
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <a href="#contact" className={styles.buttonContact}>
-              <h5 style={{ fontWeight: "bold" }}>Contact Me</h5>
-            </a>
-            <a
-              href="../../../src/assets/Abera Hiluf - Resume.pdf"
-              download
-              className={styles.buttonResume}
-            >
-              <h5 style={{ fontWeight: "bold" }}>Download Resume 📄</h5>
-            </a>
+      <div className={styles.container}>
+        <div className={styles.heroGrid} data-aos="fade-up">
+          {/* Left Column - Main Details */}
+          <div className={styles.heroLeft}>
+            <span className={styles.welcomeTag}>WELCOME TO MY WORLD</span>
+            <h1 className={styles.title}>
+              Hi, I'm <span className={styles.nameText}>ABERA HILUF</span>
+            </h1>
+            <h2 className={styles.rolesText}>
+              Full Stack Developer &<br />
+              <span className={styles.highlight}>AI / Machine Learning</span> Student
+            </h2>
+
+            <div className={styles.ctaGroup}>
+              <a href="#projects" className={styles.btnPrimary}>
+                View My Work <span className={styles.arrow}>→</span>
+              </a>
+              <a href="#contact" className={styles.btnSecondary}>
+                Get In Touch
+              </a>
+            </div>
           </div>
+
+          {/* Right Column - Decorative Quote Card */}
+          <div className={styles.heroRight}>
+            <div className={`${styles.quoteCard} glass-panel`}>
+              <div className={styles.quoteIcon}>“</div>
+              <p className={styles.quoteText}>
+                Turning complex code into clean, scalable digital solutions.
+              </p>
+              <div className={styles.quoteAuthor}>— Abera Hiluf</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.scrollDown}>
+        <span className={styles.scrollText}>Scroll Down</span>
+        <div className={styles.scrollMouse}>
+          <div className={styles.scrollWheel}></div>
         </div>
       </div>
     </header>

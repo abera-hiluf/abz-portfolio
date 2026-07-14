@@ -9,7 +9,7 @@ const Contact = () => {
     message: "",
   });
 
-  const [submissionStatus, setSubmissionStatus] = useState(""); // ✅ status message
+  const [submissionStatus, setSubmissionStatus] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -37,76 +37,120 @@ const Contact = () => {
         },
         (error) => {
           console.error(error);
-          setSubmissionStatus(
-            "❌ Oops! Something went wrong. Try again later."
-          );
+          setSubmissionStatus("❌ Oops! Something went wrong. Try again later.");
         }
       );
   };
 
   return (
-    <section id="contact" className={styles.section}>
+    <section id="contact" className={`${styles.section} section-padding`}>
       <div className={styles.container}>
-        <h5 className={styles.subtitle}>Connect with Me</h5>
-        <h2 className={styles.title}>Get in Touch</h2>
-        <p className={styles.description}>
-          I'd love to hear from you! If you have any questions, comments, or
-          feedback, please fill out the form below.
-        </p>
+        {/* Section Header */}
+        <div className={styles.header} data-aos="fade-up">
+          <span className="section-subtitle">Get In Touch</span>
+          <h2 className="section-main-title">Let's Connect & Collaborate</h2>
+        </div>
 
-        {/* ✅ Show submission message */}
-        {submissionStatus && (
-          <div className={styles.statusMessage}>{submissionStatus}</div>
-        )}
+        <div className={styles.grid}>
+          {/* Left Column - Contact Info Details */}
+          <div className={styles.infoColumn} data-aos="fade-right">
+            <div className={styles.infoCard}>
+              <div className={styles.infoIcon}>
+                <i className="fas fa-map-marker-alt"></i>
+              </div>
+              <div className={styles.infoText}>
+                <h4 className={styles.infoLabel}>Location</h4>
+                <p className={styles.infoValue}>Addis Ababa, Ethiopia</p>
+              </div>
+            </div>
 
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.formGroup}>
-            <input
-              type="text"
-              id="name"
-              value={formData.name}
-              onChange={handleChange}
-              className={styles.input}
-              placeholder="Enter your name"
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <input
-              type="email"
-              id="email"
-              value={formData.email}
-              onChange={handleChange}
-              className={styles.input}
-              placeholder="Enter your email"
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <textarea
-              id="message"
-              value={formData.message}
-              onChange={handleChange}
-              className={styles.textarea}
-              rows="4"
-              placeholder="Enter your message"
-            ></textarea>
-          </div>
-          <button type="submit" className={styles.button}>
-            Submit Now ➡️
-          </button>
-        </form>
+            <div className={styles.infoCard}>
+              <div className={styles.infoIcon}>
+                <i className="fas fa-envelope"></i>
+              </div>
+              <div className={styles.infoText}>
+                <h4 className={styles.infoLabel}>Email</h4>
+                <p className={styles.infoValue}>
+                  <a href="mailto:abera.hiluf.t@gmail.com">abera.hiluf.t@gmail.com</a>
+                </p>
+              </div>
+            </div>
 
-        <div className={styles.ctaBoxAlt}>
-          <h2 className={styles.ctaHeadingAlt}>
-            Let’s Build, Learn, and Grow Together 🌱
-          </h2>
-          <p className={styles.ctaTextAlt}>
-            Whether it's a meaningful collaboration, a tech idea, or just a
-            friendly connection , I'm open! Let’s connect and create something
-            impactful.
-          </p>
-          <a href="#contact" className={styles.ctaButtonAlt}>
-            🚀 Reach Out Now
-          </a>
+            <div className={styles.infoCard}>
+              <div className={styles.infoIcon}>
+                <i className="fab fa-telegram-plane"></i>
+              </div>
+              <div className={styles.infoText}>
+                <h4 className={styles.infoLabel}>Telegram</h4>
+                <p className={styles.infoValue}>
+                  <a href="https://t.me/abzgreat1" target="_blank" rel="noopener noreferrer">@abzgreat1</a>
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.infoCard}>
+              <div className={styles.infoIcon}>
+                <i className="fab fa-linkedin-in"></i>
+              </div>
+              <div className={styles.infoText}>
+                <h4 className={styles.infoLabel}>LinkedIn</h4>
+                <p className={styles.infoValue}>
+                  <a href="https://www.linkedin.com/in/abera-teshale-41a3a929b/" target="_blank" rel="noopener noreferrer">
+                    abera-teshale-41a3a929b
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Interactive Form */}
+          <div className={styles.formColumn} data-aos="fade-left">
+            {submissionStatus && (
+              <div className={styles.statusMessage}>{submissionStatus}</div>
+            )}
+
+            <form onSubmit={handleSubmit} className={styles.form}>
+              <div className={styles.inputGroup}>
+                <input
+                  type="text"
+                  id="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className={styles.input}
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+
+              <div className={styles.inputGroup}>
+                <input
+                  type="email"
+                  id="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className={styles.input}
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+
+              <div className={styles.inputGroup}>
+                <textarea
+                  id="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className={styles.textarea}
+                  rows="5"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" className={styles.submitBtn}>
+                Send Message <i className="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>

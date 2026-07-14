@@ -1,161 +1,219 @@
+import React, { useState } from "react";
+import styles from "./Project.module.css";
 
+// Original project images
+import forumImage from "../../assets/forum.png";
+import amazonImage from "../../assets/amazon.png";
+import netflixImage from "../../assets/Netflix.png";
+import appleImage from "../../assets/apple.png";
+import timeTrackerImage from "../../assets/timeTracker.png";
 
-/** @jsxImportSource react */
-import React from 'react';
-import styles from './Project.module.css';
-import forumImage from '../../../src/assets/forum.png';
-import amazonImage from '../../../src/assets/amazon.png';
-import netflixImage from '../../../src/assets/Netflix.png';
-import appleImage from '../../../src/assets/apple.png'
-import timeTrackerImage from '../../../src/assets/timeTracker.png'
-
+// New project images
+import backendImage from "../../assets/backend_mockup.png";
+import dashboardImage from "../../assets/dashboard_mockup.png";
+import chatappImage from "../../assets/chatapp_mockup.png";
+import recipeappImage from "../../assets/recipeapp_mockup.png";
 
 const Projects = () => {
-  const projects = [
+  const [filter, setFilter] = useState("all");
+
+  const projectsList = [
     {
-      title: "Full-stack Forum Application",
+      title: "Full-Stack Q&A Forum",
+      categories: ["fullstack"],
       image: forumImage,
-      description: [
-        "✅ Full-stack Student Q&A Platform fostering knowledge sharing.",
-        "✅ Front end with React.js, CSS, and Bootstrap for a modern UI.",
-        "✅ Back end with Node.js, Express, and MySQL for data management.",
-        "✅ Clean interface for asking questions and collaborating.",
-      ],
-      technologies: [
-        "React.js",
-        "Node.js",
-        "Express.js",
-        "MySQL",
-        "CSS",
-        "Bootstrap",
-      ],
+      description: "A comprehensive student discussion platform facilitating questions, answers, and peer collaborations.",
+      technologies: ["React.js", "Node.js", "Express.js", "MySQL", "CSS", "Bootstrap"],
       liveLink: "https://evanagadiforum.aberahiluf.com/",
       githubLink: "https://github.com/abera-hiluf/evanadi-_forum-front-end",
     },
     {
-      title: "Amazon Clone",
+      title: "Amazon E-Commerce Clone",
+      categories: ["frontend"],
       image: amazonImage,
-      description: [
-        "✅ Front-end replica of Amazon with shopping cart functionality.",
-        "✅ Built with React.js, CSS, and Redux for state management.",
-        "✅ Firebase for authentication and order management.",
-        "✅ Backend deployed on Render for user data and purchases.",
-      ],
+      description: "A detailed frontend replica of Amazon including full shopping cart utilities and product listings.",
       technologies: ["React.js", "CSS", "Redux", "Firebase", "Render"],
       liveLink: "https://amazonfront-end-deployed.netlify.app/",
       githubLink: "https://github.com/abera-hiluf/amazon-clone",
     },
     {
-      title: "Netflix Clone",
+      title: "Netflix Stream Clone",
+      categories: ["frontend"],
       image: netflixImage,
-      description: [
-        "✅ Full-stack movie streaming platform inspired by Netflix.",
-        "✅ React.js and CSS for a responsive, immersive UI.",
-        "✅ TMDB API for movie content and Firebase for authentication.",
-        "✅ YouTube API for seamless trailer playback.",
-      ],
+      description: "An immersive movie streaming platform replica utilizing the TMDB API for live movie synchronization.",
       technologies: ["React.js", "CSS", "TMDB API", "Firebase", "YouTube API"],
       liveLink: "https://neflix1.netlify.app/",
       githubLink: "https://github.com/abera-hiluf/Netflix-clone-project",
     },
     {
-      title: "Apple Clone",
+      title: "Apple Homepage Clone",
+      categories: ["frontend"],
       image: appleImage,
-      description: [
-        "✅ Modern frontend website inspired by Apple’s homepage.",
-        "✅ Developed with HTML, CSS, and JavaScript for sleek design.",
-        "✅ Features responsive layouts and smooth animations.",
-        "✅ Showcases advanced frontend skills and design detail.",
-      ],
+      description: "A clean frontend replica of Apple's flagship homepage showcasing precise layout styling and animation loops.",
       technologies: ["HTML", "CSS", "JavaScript"],
       liveLink: "https://shiny-cheesecake-119b53.netlify.app/",
       githubLink: "https://github.com/abera-hiluf/apple-clone-project",
     },
     {
-      title: "Time Tracker",
-      image: timeTrackerImage, // <-- add your image import
-      description: [
-        "✅ A productivity-focused Time Tracker web app.",
-        "✅ Allows users to add daily tasks with specific times.",
-        "✅ Provides sound reminders to move to the next task.",
-        "✅ Built with React.js and designed for effective time management.",
-      ],
+      title: "Task Focus Time Tracker",
+      categories: ["frontend"],
+      image: timeTrackerImage,
+      description: "A high-performance personal productivity app with countdown triggers and alarm alerts.",
       technologies: ["React.js", "CSS", "JavaScript", "Netlify"],
       liveLink: "https://focustime-tracker-todo-listpp.netlify.app/",
       githubLink: "https://github.com/abera-hiluf/todolist-app-frontend",
     },
+    {
+      title: "Evangadi Forum Server API",
+      categories: ["backend"],
+      image: backendImage,
+      description: "The secure server backend powering the student forum. Handles JWT registration, user profiles, and MySQL questions schemas.",
+      technologies: ["Node.js", "Express.js", "MySQL", "JWT", "bcrypt"],
+      liveLink: "https://github.com/abera-hiluf/evangadi-_forum-back-end",
+      githubLink: "https://github.com/abera-hiluf/evangadi-_forum-back-end",
+    },
+    {
+      title: "Enterprise E-Commerce Admin Panel",
+      categories: ["fullstack"],
+      image: dashboardImage,
+      description: "A business analytics dashboard containing charts for order pipelines, customer demographics, and dynamic inventories.",
+      technologies: ["React.js", "Tailwind CSS", "Recharts", "LocalStorage"],
+      liveLink: "https://github.com/abera-hiluf/",
+      githubLink: "https://github.com/abera-hiluf/",
+    },
+    {
+      title: "Real-Time Group Chat System",
+      categories: ["fullstack"],
+      image: chatappImage,
+      description: "A chat utility implementing instant communication, active status trackers, and concurrent messaging channels.",
+      technologies: ["React.js", "Node.js", "Socket.io", "Express.js", "MongoDB"],
+      liveLink: "https://github.com/abera-hiluf/",
+      githubLink: "https://github.com/abera-hiluf/",
+    },
+    {
+      title: "Culinary Recipe & Meal Planner",
+      categories: ["frontend"],
+      image: recipeappImage,
+      description: "A recipes catalog dashboard where users query cuisines, manage calorie plans, and auto-build grocery lists.",
+      technologies: ["React.js", "Spoonacular API", "CSS", "Bootstrap"],
+      liveLink: "https://github.com/abera-hiluf/",
+      githubLink: "https://github.com/abera-hiluf/",
+    },
   ];
 
+  const filteredProjects = filter === "all" 
+    ? projectsList 
+    : projectsList.filter(p => p.categories.includes(filter));
+
   return (
-    <section id="projects" className={styles.section}>
+    <section id="projects" className="section-padding">
       <div className={styles.container}>
-        <h5 className={styles.subtitle}>My Works</h5>
-        <h2 className={styles.title}>Projects</h2>
-        <div className={styles.grid}>
-          {projects.map((project, index) => (
-            <div
-              key={project.title}
-              className={`${styles.project} ${
-                index % 2 === 0 ? styles.left : styles.right
-              }`}
-              data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-            >
-              <div className={styles.imageContainer}>
-                <a
-                  href={project.liveLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className={styles.image}
+        {/* Section Header */}
+        <div className={styles.header} data-aos="fade-up">
+          <span className="section-subtitle">My Portfolio</span>
+          <h2 className="section-main-title">Featured Projects</h2>
+        </div>
+
+        {/* Filter Buttons */}
+        <div className={styles.filters} data-aos="fade-up">
+          <button 
+            className={`${styles.filterBtn} ${filter === "all" ? styles.activeFilter : ""}`}
+            onClick={() => setFilter("all")}
+          >
+            All Work
+          </button>
+          <button 
+            className={`${styles.filterBtn} ${filter === "fullstack" ? styles.activeFilter : ""}`}
+            onClick={() => setFilter("fullstack")}
+          >
+            Full Stack
+          </button>
+          <button 
+            className={`${styles.filterBtn} ${filter === "frontend" ? styles.activeFilter : ""}`}
+            onClick={() => setFilter("frontend")}
+          >
+            Frontend
+          </button>
+          <button 
+            className={`${styles.filterBtn} ${filter === "backend" ? styles.activeFilter : ""}`}
+            onClick={() => setFilter("backend")}
+          >
+            Backend & APIs
+          </button>
+          <button 
+            className={`${styles.filterBtn} ${filter === "ai" ? styles.activeFilter : ""}`}
+            onClick={() => setFilter("ai")}
+          >
+            AI Powered Applications
+          </button>
+        </div>
+
+        {/* Projects Grid or Empty State */}
+        {filteredProjects.length === 0 ? (
+          <div className={styles.emptyState} data-aos="fade-up">
+            <div className={styles.emptyIcon}>🤖</div>
+            <h3 className={styles.emptyTitle}>AI-powered projects are currently being prepared for showcase.</h3>
+            <p className={styles.emptyText}>Projects integrating machine learning and intelligent application features will appear here.</p>
+          </div>
+        ) : (
+          <div className={styles.grid}>
+            {filteredProjects.map((project, index) => (
+              <div 
+                key={project.title}
+                className={`${styles.projectCard} glass-panel`}
+                data-aos="fade-up"
+                data-aos-delay={(index % 3) * 100}
+              >
+                {/* Image Container */}
+                <div className={styles.imageContainer}>
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className={styles.projectImage} 
                   />
-                </a>
-              </div>
-              <div className={styles.content}>
-                <h3 className={styles.projectTitle}>{project.title}</h3>
-                {project.description.map((para, i) => (
-                  <p key={i} className={styles.description}>
-                    {para}
-                  </p>
-                ))}
-                <div className={styles.buttons}>
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${styles.buttonLive}`}
-                  >
-                    ⏱️ View Live
-                  </a>
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.buttonGithub}
-                  >
-                    🐙 GitHub
-                  </a>
+                  <div className={styles.overlay}>
+                    <div className={styles.links}>
+                      <a 
+                        href={project.liveLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className={styles.iconLink}
+                        title="Live Demo"
+                      >
+                        <i className="fas fa-external-link-alt"></i>
+                      </a>
+                      <a 
+                        href={project.githubLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className={styles.iconLink}
+                        title="Source Code"
+                      >
+                        <i className="fab fa-github"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content Box */}
+                <div className={styles.content}>
+                  <h3 className={styles.projectTitle}>{project.title}</h3>
+                  <p className={styles.description}>{project.description}</p>
+                  
+                  {/* Tech Pills */}
+                  <div className={styles.techPills}>
+                    {project.technologies.map(tech => (
+                      <span key={tech} className={styles.pill}>{tech}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
-              <div className={styles.technologies}>
-                <h3 className={styles.techTitle}>Technologies</h3>
-                <ul className={styles.techList}>
-                  {project.technologies.map((tech, i) => (
-                    <li key={i} className={styles.techItem}>
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
 };
-
 
 export default Projects;

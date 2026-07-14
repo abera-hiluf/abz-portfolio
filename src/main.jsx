@@ -8,6 +8,7 @@ import 'aos/dist/aos.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AOS from 'aos';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import './index.css';
 
 AOS.init({
   duration: 600, // Default animation duration
