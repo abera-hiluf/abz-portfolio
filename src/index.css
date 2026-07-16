@@ -33,6 +33,12 @@
   --bg-contact: #0F0F0F;
   --bg-footer: #000000;
 
+  /* Ambient Glow & Grid overlay styles */
+  --bg-glow-1: rgba(212, 170, 58, 0.10);
+  --bg-glow-2: rgba(212, 170, 58, 0.06);
+  --bg-glow-3: rgba(212, 170, 58, 0.03);
+  --grid-color: rgba(212, 170, 58, 0.02);
+
   /* Legacy Mappings to maintain compatibility */
   --bg-dark: var(--bg-primary);
   --primary: var(--gold-primary);
@@ -74,6 +80,12 @@
   --bg-projects: var(--bg-primary);
   --bg-contact: var(--bg-section);
   --bg-footer: var(--bg-secondary);
+
+  /* Ambient Glow & Grid overlay styles - Light Mode */
+  --bg-glow-1: rgba(200, 159, 50, 0.07);
+  --bg-glow-2: rgba(200, 159, 50, 0.04);
+  --bg-glow-3: rgba(200, 159, 50, 0.02);
+  --grid-color: rgba(200, 159, 50, 0.015);
 
   /* Legacy Mappings to maintain compatibility */
   --bg-dark: var(--bg-primary);
