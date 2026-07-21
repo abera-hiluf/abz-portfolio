@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./Header.module.css";
+import profilePhoto from "../../assets/linkedln.jpg";
 
 const Header = () => {
   const wrapperRef = useRef(null);
@@ -13,10 +14,10 @@ const Header = () => {
 
     const handleScroll = () => {
       if (!wrapperRef.current || !headerRef.current) return;
-      
+
       const rect = wrapperRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      
+
       // Calculate progress (0 to 1) as the wrapper passes through the viewport sticky region
       let progress = 0;
       if (rect.height > windowHeight) {
@@ -47,7 +48,7 @@ const Header = () => {
         }
       } else {
         // High-end Apple-style sticky scroll zoom, parallax, and fade for desktop
-        
+
         // 1. Background Zoom: scale 1 to 1.15
         if (bgRef.current) {
           bgRef.current.style.transform = `scale3d(${1 + progress * 0.15}, ${1 + progress * 0.15}, 1)`;
@@ -86,7 +87,7 @@ const Header = () => {
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize, { passive: true });
-    
+
     // Set initial layout
     handleScroll();
 
@@ -104,33 +105,95 @@ const Header = () => {
           <div className={styles.heroGrid} data-aos="fade-up">
             {/* Left Column - Main Details */}
             <div className={styles.heroLeft}>
-              <span className={styles.welcomeTag}>WELCOME TO MY WORLD</span>
+              <div className={styles.badgeWrapper}>
+                <span className={styles.statusDot}></span>
+                <span className={styles.welcomeTag}>FULL STACK & AI/ML DEVELOPER</span>
+              </div>
+
               <h1 className={styles.title}>
-                Hi, I'm <span className={styles.nameText}>ABERA HILUF</span>
+                Hi, I'm <span className={styles.nameText}>Abera Hiluf</span>
               </h1>
+
               <h2 className={styles.rolesText}>
-                Full Stack Developer &<br />
-                <span className={styles.highlight}>AI / Machine Learning</span> Student
+                Full Stack Developer & <span className={styles.highlight}>AI/ML Engineer</span>
               </h2>
+
+              <p className={styles.heroDescription}>
+                Building scalable, high-performance MERN stack web applications and integrating intelligent AI/ML solutions to deliver modern digital experiences.
+              </p>
 
               <div className={styles.ctaGroup}>
                 <a href="#projects" className={styles.btnPrimary}>
-                  View My Work <span className={styles.arrow}>→</span>
+                  Explore Projects <span className={styles.arrow}>→</span>
                 </a>
                 <a href="#contact" className={styles.btnSecondary}>
                   Get In Touch
                 </a>
               </div>
+
+              {/* Core Tech Stack Bar */}
+              <div className={styles.techBar}>
+                <span className={styles.techBarTitle}>Core Stack & AI Tools:</span>
+                <div className={styles.techPillList}>
+                  <span className={styles.techPill}>React.js</span>
+                  <span className={styles.techPill}>Node.js</span>
+                  <span className={styles.techPill}>PostgreSQL</span>
+                  <span className={styles.techPill}>Python</span>
+                  <span className={styles.techPill}>FastAPI</span>
+                  <span className={styles.techPill}>LangChain</span>
+                  <span className={styles.techPill}>RAG</span>
+                  <span className={styles.techPill}>LLMs</span>
+                </div>
+              </div>
             </div>
 
-            {/* Right Column - Decorative Quote Card */}
+            {/* Right Column - Developer Profile Card */}
             <div className={styles.heroRight}>
-              <div className={`${styles.quoteCard} glass-panel`}>
-                <div className={styles.quoteIcon}>“</div>
-                <p className={styles.quoteText}>
-                  Turning complex code into clean, scalable digital solutions.
-                </p>
-                <div className={styles.quoteAuthor}>— Abera Hiluf</div>
+              <div className={`${styles.heroCard} glass-panel`}>
+                <div className={styles.cardHeader}>
+                  <div className={styles.cardHeaderLeft}>
+                    <div className={styles.profileAvatarWrapper}>
+                      <img
+                        src={profilePhoto}
+                        alt="Abera Hiluf"
+                        className={styles.profileAvatar}
+                      />
+                      <span className={styles.avatarStatusDot}></span>
+                    </div>
+                    <div className={styles.cardHeaderInfo}>
+                      <h3 className={styles.cardDeveloperName}>Abera Hiluf</h3>
+                      <span className={styles.cardTitleSub}>Full Stack & AI/ML Engineer</span>
+                    </div>
+                  </div>
+                  <span className={styles.availabilityBadge}>Open to Work</span>
+                </div>
+
+                <div className={styles.quoteBox}>
+                  <p className={styles.quoteText}>
+                    "Turning complex code into clean, scalable, and high-impact digital solutions."
+                  </p>
+                </div>
+
+                <div className={styles.statsGrid}>
+                  <div className={styles.statItem}>
+                    <span className={styles.statValue}>9+</span>
+                    <span className={styles.statLabel}>Projects Built</span>
+                  </div>
+                  <div className={styles.statItem}>
+                    <span className={styles.statValue}>MERN</span>
+                    <span className={styles.statLabel}>Stack Focus</span>
+                  </div>
+                  <div className={styles.statItem}>
+                    <span className={styles.statValue}>AI / ML</span>
+                    <span className={styles.statLabel}>Specialization</span>
+                  </div>
+                </div>
+
+                <div className={styles.cardFooter}>
+                  <a href="#about" className={styles.cardLink}>
+                    Learn More About Me <span className={styles.linkArrow}>→</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -142,8 +205,8 @@ const Header = () => {
             <div className={styles.scrollWheel}></div>
           </div>
         </div>
-      </header>
-    </div>
+      </header >
+    </div >
   );
 };
 

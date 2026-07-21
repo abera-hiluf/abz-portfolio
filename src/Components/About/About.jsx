@@ -34,11 +34,11 @@ const About = () => {
               </li>
               <li className={styles.workListItem}>
                 <span className={styles.workBullet}></span>
-                Database Architecture & Optimization
+                Integrating AI into Web & Cloud Applications
               </li>
               <li className={styles.workListItem}>
                 <span className={styles.workBullet}></span>
-                AI & Machine Learning Research
+                AI & Machine Learning Powered Intelligent Products
               </li>
             </ul>
           </div>
