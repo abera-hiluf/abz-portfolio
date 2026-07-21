@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./About.module.css";
-import profilePhoto from "../../assets/about-pic.jpg";
+import profilePhoto from "../../assets/abera.jpg";
 
 const About = () => {
   return (
@@ -13,14 +13,12 @@ const About = () => {
             <h2 className="section-main-title">About Me</h2>
             
             <p className={styles.text}>
-              I'm Abera Hiluf, a passionate Full Stack Developer and AI & Machine Learning Student.
-              I specialize in the MERN stack (MongoDB, Express, React, Node.js) and love building scalable,
-              highly performant, and user-centered web applications that solve real-world problems.
+              I am a Full Stack Developer specializing in building scalable, performant, and user-centered web applications. I am trained through the Evangadi Network bootcamp AI powered full stack application program, with expertise in the MERN stack (MongoDB, Express, React, Node.js).
             </p>
             
             <p className={styles.text}>
               My learning journey bridges Anna University (Computer Engineering with AI/ML specialisation)
-              and intense hands-on development bootcamps. I thrive in team environments, focusing on writing clean
+              and hands-on full stack engineering. I thrive in team environments, focusing on writing clean
               maintainable code, and constantly expanding my technological horizons.
             </p>
 

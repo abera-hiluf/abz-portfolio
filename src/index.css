@@ -189,14 +189,14 @@ textarea:focus-visible {
 }
 
 .section-main-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-family: var(--font-outfit);
   font-weight: 800;
   letter-spacing: -0.01em;
   text-transform: uppercase;
   position: relative;
   display: inline-block;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
   color: var(--text-primary);
 }
 
@@ -213,7 +213,7 @@ textarea:focus-visible {
 }
 
 .section-subtitle {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--gold-primary);
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -234,7 +234,7 @@ textarea:focus-visible {
 /* Responsive typography rules */
 @media (max-width: 768px) {
   .section-main-title {
-    font-size: 2rem;
+    font-size: 1.65rem;
   }
   .section-padding {
     padding: 70px 0;
@@ -265,4 +265,50 @@ textarea:focus-visible {
 #footer {
   background-color: var(--bg-footer);
 }
+
+/* Premium customized Scroll Reveal transition curve (Apple-style) */
+[data-aos] {
+  pointer-events: none;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform, opacity;
+}
+
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
+
+/* Elevate standard fade-up and other AOS animations with custom curves and scale shifts */
+[data-aos="fade-up"] {
+  transform: translate3d(0, 50px, 0) scale(0.98);
+  opacity: 0;
+  transition-property: transform, opacity !important;
+}
+
+[data-aos="fade-up"].aos-animate {
+  transform: translate3d(0, 0, 0) scale(1);
+  opacity: 1;
+}
+
+[data-aos="fade-right"] {
+  transform: translate3d(-50px, 0, 0) scale(0.98);
+  opacity: 0;
+  transition-property: transform, opacity !important;
+}
+
+[data-aos="fade-right"].aos-animate {
+  transform: translate3d(0, 0, 0) scale(1);
+  opacity: 1;
+}
+
+[data-aos="fade-left"] {
+  transform: translate3d(50px, 0, 0) scale(0.98);
+  opacity: 0;
+  transition-property: transform, opacity !important;
+}
+
+[data-aos="fade-left"].aos-animate {
+  transform: translate3d(0, 0, 0) scale(1);
+  opacity: 1;
+}
+
 
