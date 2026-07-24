@@ -8,16 +8,20 @@ import netflixImage from "../../assets/Netflix.png";
 import appleImage from "../../assets/apple.png";
 import timeTrackerImage from "../../assets/timeTracker.png";
 
-// New project images
-import backendImage from "../../assets/backend_mockup.png";
-import dashboardImage from "../../assets/dashboard_mockup.png";
-import chatappImage from "../../assets/chatapp_mockup.png";
-import recipeappImage from "../../assets/recipeapp_mockup.png";
+import kshsImage from "../../assets/kshs.jpg";
 
 const Projects = () => {
   const [filter, setFilter] = useState("all");
 
   const projectsList = [
+    {
+      title: "KAA Connect",
+      categories: ["fullstack"],
+      image: kshsImage,
+      description: "A secure digital hub connecting KSHS alumni and students, fostering mentorship, opportunities, and community support with professional connection and messaging functionality.",
+      technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Socket.io", "CSS"],
+      liveLink: "https://kaaconnect.vercel.app/",
+    },
     {
       title: "Full-Stack Q&A Forum",
       categories: ["fullstack"],
@@ -62,42 +66,6 @@ const Projects = () => {
       technologies: ["React.js", "CSS", "JavaScript", "Netlify"],
       liveLink: "https://focustime-tracker-todo-listpp.netlify.app/",
       githubLink: "https://github.com/abera-hiluf/todolist-app-frontend",
-    },
-    {
-      title: "Evangadi Forum Server API",
-      categories: ["backend"],
-      image: backendImage,
-      description: "The secure server backend powering the student forum. Handles JWT registration, user profiles, and MySQL questions schemas.",
-      technologies: ["Node.js", "Express.js", "MySQL", "JWT", "bcrypt"],
-      liveLink: "https://github.com/abera-hiluf/evangadi-_forum-back-end",
-      githubLink: "https://github.com/abera-hiluf/evangadi-_forum-back-end",
-    },
-    {
-      title: "Enterprise E-Commerce Admin Panel",
-      categories: ["fullstack"],
-      image: dashboardImage,
-      description: "A business analytics dashboard containing charts for order pipelines, customer demographics, and dynamic inventories.",
-      technologies: ["React.js", "Tailwind CSS", "Recharts", "LocalStorage"],
-      liveLink: "https://github.com/abera-hiluf/",
-      githubLink: "https://github.com/abera-hiluf/",
-    },
-    {
-      title: "Real-Time Group Chat System",
-      categories: ["fullstack"],
-      image: chatappImage,
-      description: "A chat utility implementing instant communication, active status trackers, and concurrent messaging channels.",
-      technologies: ["React.js", "Node.js", "Socket.io", "Express.js", "MongoDB"],
-      liveLink: "https://github.com/abera-hiluf/",
-      githubLink: "https://github.com/abera-hiluf/",
-    },
-    {
-      title: "Culinary Recipe & Meal Planner",
-      categories: ["frontend"],
-      image: recipeappImage,
-      description: "A recipes catalog dashboard where users query cuisines, manage calorie plans, and auto-build grocery lists.",
-      technologies: ["React.js", "Spoonacular API", "CSS", "Bootstrap"],
-      liveLink: "https://github.com/abera-hiluf/",
-      githubLink: "https://github.com/abera-hiluf/",
     },
   ];
 
@@ -173,24 +141,28 @@ const Projects = () => {
                   />
                   <div className={styles.overlay}>
                     <div className={styles.links}>
-                      <a 
-                        href={project.liveLink} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className={styles.iconLink}
-                        title="Live Demo"
-                      >
-                        <i className="fas fa-external-link-alt"></i>
-                      </a>
-                      <a 
-                        href={project.githubLink} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className={styles.iconLink}
-                        title="Source Code"
-                      >
-                        <i className="fab fa-github"></i>
-                      </a>
+                      {project.liveLink && (
+                        <a 
+                          href={project.liveLink} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className={styles.iconLink}
+                          title="Live Demo"
+                        >
+                          <i className="fas fa-external-link-alt"></i>
+                        </a>
+                      )}
+                      {project.githubLink && (
+                        <a 
+                          href={project.githubLink} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className={styles.iconLink}
+                          title="Source Code"
+                        >
+                          <i className="fab fa-github"></i>
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
